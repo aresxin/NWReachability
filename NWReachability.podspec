@@ -6,29 +6,30 @@
 #  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
 #
 
-Pod::Spec.new do |spec|
+Pod::Spec.new do |s|
 
-  spec.name         = "NWReachability"
-  spec.version      = "1.0.0"
-  spec.summary      = "Monitoring Network"
+  s.name         = "NWReachability"
+  s.version      = "1.0.0"
+  s.summary      = "Monitoring Network"
 
-  spec.description  = <<-DESC 
+  s.description  = <<-DESC 
                                  Monitoring iOS device's network connectivity using Apple's Network framework.
                                  DESC
 
-  spec.homepage     = "https://github.com/aresxin/NWReachability"
+  s.homepage     = "https://github.com/aresxin/NWReachability"
 
-  spec.license      = "MIT"
+  s.license      = "MIT"
 
-  spec.author             = { "owen" => "653992778@qq.com" }
-  spec.social_media_url   = "https://github.com/aresxin"
+  s.author             = { "owen" => "653992778@qq.com" }
+  s.social_media_url   = "https://github.com/aresxin"
 
-  spec.swift_versions = ['5.0']
+  s.swift_versions = ['5.0']
   
-  spec.ios.deployment_target = "13.0"
+  s.ios.deployment_target = "13.0"
   
-  spec.source       = { :git => "https://github.com/aresxin/NWReachability.git", :tag => 'v'+s.version.to_s }
-  spec.source_files  = 'Connectivity/*.swift'
+  s.source       = { :git => "https://github.com/aresxin/NWReachability.git", :tag => 'v'+s.version.to_s }
+  s.source_files  = 'Connectivity/*.swift'
 
-  spec.frameworks = "Network", "Combine"
+  s.frameworks = "Network", "Combine"
+  
 end
