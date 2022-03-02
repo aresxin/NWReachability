@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "NWReachability"
-  s.version      = "1.0.0"
+  s.version      = "1.1.0"
   s.summary      = "Monitoring Network"
 
   s.description  = <<-DESC 
