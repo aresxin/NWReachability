@@ -28,7 +28,7 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = "13.0"
   
   spec.source       = { :git => "https://github.com/aresxin/NWReachability.git", :tag => 'v'+s.version.to_s }
-  spec.source_files  = 'NWReachability/Connectivity/*.swift'
+  spec.source_files  = 'Connectivity/*.swift'
 
   spec.frameworks = "Network", "Combine"
 end
