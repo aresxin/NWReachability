@@ -18,8 +18,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NWReachability.default.startMonitoring()
+        
         observeNetworkStatus()
+        
+        NWReachability.default.startMonitoring()
     }
 
     deinit {

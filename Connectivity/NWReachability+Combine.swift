@@ -23,8 +23,6 @@ internal extension NWReachability {
         
         func request(_ demand: Subscribers.Demand) {
             guard let connectivity = connectivity else { return }
-            _ = self.subscriber?.receive(connectivity)
-            
             token = connectivity.addObserver(queue: .main) { [weak self] connectivity in
                 _ = self?.subscriber?.receive(connectivity)
             }
@@ -36,8 +34,7 @@ internal extension NWReachability {
             connectivity = nil
         }
         
-        deinit {
-        }
+        deinit {}
     }
     
     
