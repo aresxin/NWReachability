@@ -87,7 +87,7 @@ NWReachability.default.publisher.sink {  [weak self] connectivity in
 }.store(in: &cancellables)
 NWReachability.default.startMonitoring()
 ```
-and for stopping notifications
+and for stopping 
 
 ```swift
 NWReachability.default.stopMonitoring()
