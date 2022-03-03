@@ -35,12 +35,36 @@ class ViewController: UIViewController {
         token = NWReachability.default.addObserver { [weak self] connectivity in
             self?.textLabel.text = connectivity.isConnected ?
                 "Connection is OK" : "Connection lost"
+            print("connectivity isConnected \(connectivity.isConnected)")
+            print("connectivity isExpensive \(connectivity.isExpensive)")
+            switch connectivity.status {
+            case .reachable(.cellular):
+                print("cellular")
+            case .notReachable:
+                print("notReachable")
+            case .reachable(.ethernetOrWiFi):
+                print("ethernetOrWiFi")
+            case .unknown:
+                print("unknown")
+            }
         }
         
         // MARK: - Combine
         NWReachability.default.publisher.sink {  [weak self] connectivity in
             self?.combineTextLabel.text = connectivity.isConnected ?
                 "Connection is OK" : "Connection lost"
+            print("connectivity isConnected \(connectivity.isConnected)")
+            print("connectivity isExpensive \(connectivity.isExpensive)")
+            switch connectivity.status {
+            case .reachable(.cellular):
+                print("cellular")
+            case .notReachable:
+                print("notReachable")
+            case .reachable(.ethernetOrWiFi):
+                print("ethernetOrWiFi")
+            case .unknown:
+                print("unknown")
+            }
         }.store(in: &cancellables)
     }
 
