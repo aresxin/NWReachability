@@ -7,6 +7,8 @@ NWReachability is a pure Swift library for monitoring the network connection of 
 
 * Requirements: iOS 13.0~ / Swift 5.0~ <br>
 
+* Combine Support 
+
 ## Installation
 
 ### CocoaPods
@@ -38,3 +40,56 @@ NWReachability is a pure Swift library for monitoring the network connection of 
    `import Combine` <br>
 
 ## Usage
+
+### Example - notifications
+NOTE: All notifications are delivered on the **main queue**.
+
+```swift
+let token = NWReachability.default.addObserver { [weak self] connectivity in
+ print("connectivity isConnected \(connectivity.isConnected)")
+ print("connectivity isExpensive \(connectivity.isExpensive)")
+ switch connectivity.status {
+ case .reachable(.cellular):
+   print("cellular")
+ case .notReachable:
+   print("notReachable")
+ case .reachable(.ethernetOrWiFi):
+   print("ethernetOrWiFi")
+case .unknown:
+   print("unknown")
+}
+}
+NWReachability.default.startMonitoring()
+```
+
+and for stopping notifications
+
+```swift
+NWReachability.default.stopMonitoring()
+NotificationCenter.default.removeObserver(token as Any)
+```
+
+### Example - Combine
+```swift
+NWReachability.default.publisher.sink {  [weak self] connectivity in
+  print("connectivity isConnected \(connectivity.isConnected)")
+  print("connectivity isExpensive \(connectivity.isExpensive)")
+  switch connectivity.status {
+  case .reachable(.cellular):
+    print("cellular")
+  case .notReachable:
+    print("notReachable")
+  case .reachable(.ethernetOrWiFi):
+    print("ethernetOrWiFi")
+  case .unknown:
+    print("unknown")
+  }          
+}.store(in: &cancellables)
+NWReachability.default.startMonitoring()
+```
+and for stopping notifications
+
+```swift
+NWReachability.default.stopMonitoring()
+cancellables.removeAll()
+```
