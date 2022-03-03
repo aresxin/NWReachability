@@ -3,7 +3,7 @@
 
 ---
 
-* Latest release: [version 1.1.0](https://github.com/aresxin/NWReachability/releases/tag/v1.1.0) <br>
+* Latest release: [version 1.1.1](https://github.com/aresxin/NWReachability/releases/tag/v1.1.1) <br>
 
 * Requirements: iOS 13.0~ / Swift 5.0~ <br>
 
@@ -39,8 +39,13 @@
    `import NWReachability` <br>
    `import Combine` <br>
 
-## Usage
+#### Swift Package Manager
+- File > Swift Packages > Add Package Dependency
+- Add `https://github.com/aresxin/NWReachability.git`
+- Select "Up to Next Major" with "1.1.1"
 
+
+## Usage
 ### Example - notifications
 NOTE: All notifications are delivered on the **main queue**.
 
